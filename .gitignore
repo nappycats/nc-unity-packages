@@ -97,7 +97,10 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+<<<<<<< HEAD
 
 manifest.json
 .DS_Store
 packages-lock.json
+=======
+>>>>>>> 3e890f6a6458a131fbf54c8afa17b25f78db9505
