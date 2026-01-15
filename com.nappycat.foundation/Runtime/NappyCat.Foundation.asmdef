@@ -1,0 +1,16 @@
+{
+  "name": "NappyCat.Foundation",
+  "rootNamespace": "NappyCat.Foundation",
+  "references": [
+    "UnityEngine.CoreModule"
+  ],
+  "includePlatforms": [],
+  "autoReferenced": true,
+  "versionDefines": [
+    {
+      "name": "com.nappycat.events",
+      "expression": "0.1.0",
+      "define": "NC_PKG_EVENTS"
+    }
+  ]
+}

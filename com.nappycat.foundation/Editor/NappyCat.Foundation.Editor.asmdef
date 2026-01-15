@@ -1,0 +1,12 @@
+{
+  "name": "NappyCat.Foundation.Editor",
+  "autoReferenced": true,
+  "includePlatforms": [
+    "Editor"
+  ],
+  "references": [
+    "NappyCat.Foundation",
+    "UnityEditor.CoreModule"
+  ],
+  "versionDefines": []
+}

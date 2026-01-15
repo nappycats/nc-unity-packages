@@ -1,0 +1,22 @@
+/*
+ * NAPPY CAT
+ *
+ * Copyright © 2025 NAPPY CAT Games
+ * http://nappycat.net
+ *
+ * Author: Stan Nesi
+ *
+ * File: Packages/com.nappycat.foundation/Runtime/NcKeys.Tags.g.cs
+ */
+namespace NappyCat.Core
+{
+    public static partial class NcKeys
+    {
+        public static partial class Tags
+        {
+            public const string CAMERA = "camera";
+            public const string GAMEOBJECT = "gameobject";
+            public const string SCENE = "scene";
+        }
+    }
+}
