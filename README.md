@@ -5,7 +5,8 @@ A collection of Unity packages for game development, providing modular tools and
 ## Available Packages
 
 ### Free Packages
-- **com.nappycat.foundation** - Core foundation utilities, settings management, patterns, and editor tools.
+- **com.nappycat.foundation** — Core utilities, Nc.Keys hub, settings management, patterns, and editor tools.
+- **com.nappycat.appinfo** — App metadata ScriptableObject (IDs, URLs, packages) with optional Nc.Keys.App constants when Foundation is present.
 
 ### Pro Packages
 Pro packages are available in a separate repository for licensed users. Contact us for access.
@@ -18,6 +19,7 @@ Pro packages are available in a separate repository for licensed users. Contact 
 4. Enter the package URL: `https://github.com/nappycats/nc-unity-packages.git#[package-name]`
 
 Example: `https://github.com/nappycats/nc-unity-packages.git#com.nappycat.foundation`
+Another example: `https://github.com/nappycats/nc-unity-packages.git#com.nappycat.appinfo`
 
 ## License
 
