@@ -1,4 +1,4 @@
-# NappyCat • Pool
+# Nappy Cat • Pool
 
 Lightweight pools for objects and GameObjects with an Nc hub helper.
 

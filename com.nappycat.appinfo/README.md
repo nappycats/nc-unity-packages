@@ -1,4 +1,4 @@
-# Nappy Cat App Core
+# Nappy Cat • App Info
 
 Centralised app metadata and code generation for shipping games built on the Nappy Cat stack. Keep store URLs, legal links, app identifiers, and tooling paths in one ScriptableObject, then surface strongly-typed constants across your project.
 
