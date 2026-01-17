@@ -1,5 +1,9 @@
 # Nappy Cat • App Info
 
+<div style="background:linear-gradient(135deg,#0d1117,#10253f);border:1px solid #1f6feb;border-radius:10px;padding:12px;color:#c9d1d9;">
+<strong style="color:#79c0ff">Centralise your app identity.</strong> Store IDs, URLs, and version info in one asset; generate Nc.Keys for code use.
+</div>
+
 Centralised app metadata and code generation for shipping games built on the Nappy Cat stack. Keep store URLs, legal links, app identifiers, and tooling paths in one ScriptableObject, then surface strongly-typed constants across your project.
 
 ## Requirements
@@ -15,9 +19,9 @@ Centralised app metadata and code generation for shipping games built on the Nap
 3. Use the built-in generator to emit `NcKeys.App.g.cs` (`Nc.Keys.App.*`) whenever App Info changes.
 
 ## Highlights
-- `NcAppInfo` ScriptableObject with identity, version, company, language, and URL metadata.
-- `NcApp` static accessor that loads the shared asset from `Resources/NappyCat/NcAppInfo`.
-- `NcAppConstsGenerator` editor tool that creates strongly-typed constants under `Nc.Keys.App.*` (targets Foundation when present, otherwise `Assets/NappyCat/NcKeys.Generated/`).
+- <span style="color:#d2a8ff">`NcAppInfo`</span>: ScriptableObject with identity, version, company, language, and URL metadata.
+- <span style="color:#79c0ff">`Nc.App.Info`</span>: static accessor that loads the shared asset from `Resources/NappyCat/NcAppInfo`.
+- <span style="color:#56d364">`NcAppConstsGenerator`</span>: creates strongly-typed constants under `Nc.Keys.App.*` (targets Foundation when present, otherwise `Assets/NappyCat/NcKeys.Generated/`).
 - Project Settings integration for quick edits without hunting for the asset.
 
 ## Documentation

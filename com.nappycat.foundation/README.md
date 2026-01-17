@@ -1,6 +1,8 @@
 # NappyCat • Foundation
 
-Tiny bedrock package with minimal, stable utilities used by all other packages.
+<div style="background:linear-gradient(135deg,#0d1117,#111c26);border:1px solid #238636;border-radius:10px;padding:12px;color:#c9d1d9;">
+<strong style="color:#56d364">Bedrock utilities.</strong> Minimal, stable primitives used by every other Nappy Cat package.
+</div>
 
 Includes
 - Foundation/NcDefines: define names used across NappyCat (doc‑level constants)

@@ -1,12 +1,16 @@
 # Nappy Cat • Pool
 
+<div style="background:linear-gradient(135deg,#0d1117,#0f241c);border:1px solid #3fb950;border-radius:10px;padding:12px;color:#c9d1d9;">
+<strong style="color:#56d364">Reuse more, allocate less.</strong> Pools for data and GameObjects, plus Nc hub helpers.
+</div>
+
 Lightweight pools for objects and GameObjects with an Nc hub helper.
 
 Highlights
-- `NcPool<T>`: generic pool with factory/reset and optional warmup.
-- `NcGoPool`: prefab pool storing inactive instances under an optional root.
-- `NcObjectPool<T>` + `INcPoolPolicy<T>`: policy-based lifecycle hooks.
-- `Nc.Pool.Create(...)`: hub helper for quick pools (no extra setup).
+- <span style="color:#56d364">`NcPool<T>`</span>: generic pool with factory/reset and optional warmup.
+- <span style="color:#79c0ff">`NcGoPool`</span>: prefab pool storing inactive instances under an optional root; calls `NcPooledBehaviour` hooks.
+- <span style="color:#d2a8ff">`NcObjectPool<T>` + `INcPoolPolicy<T>`</span>: policy-based lifecycle hooks.
+- <span style="color:#ffa657">`Nc.Pool.Create(...)`</span>: hub helper for quick pools (no extra setup).
 - `NcPooledBehaviour`: drop-in MonoBehaviour hook for acquire/release when using `NcGoPool`.
 
 Examples
