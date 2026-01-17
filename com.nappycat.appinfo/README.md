@@ -7,7 +7,7 @@ Centralised app metadata and code generation for shipping games built on the Nap
 
 ### Optional NappyCat Foundation
 - Package runs standalone (NcAppInfo derives from ScriptableObject).
-- When `com.nappycat.foundation` is present (asmdef adds `NC_PKG_FOUNDATION`), the const generator writes `Nc.Keys.App.*` to the Foundation package; otherwise it writes to `Assets/NappyCat.Generated/`.
+- When `com.nappycat.foundation` is present (asmdef adds `NC_PKG_FOUNDATION`), the const generator writes `Nc.Keys.App.*` to the Foundation package; otherwise it writes to `Assets/NappyCat/NcKeys.Generated/`.
 
 ## Installation
 1. Add the package folder under `Packages/` and register it via Add package from disk....
@@ -17,7 +17,7 @@ Centralised app metadata and code generation for shipping games built on the Nap
 ## Highlights
 - `NcAppInfo` ScriptableObject with identity, version, company, language, and URL metadata.
 - `NcApp` static accessor that loads the shared asset from `Resources/NappyCat/NcAppInfo`.
-- `NcAppConstsGenerator` editor tool that creates strongly-typed constants under `Nc.Keys.App.*` (targets Foundation when present, otherwise `Assets/NappyCat.Generated/`).
+- `NcAppConstsGenerator` editor tool that creates strongly-typed constants under `Nc.Keys.App.*` (targets Foundation when present, otherwise `Assets/NappyCat/NcKeys.Generated/`).
 - Project Settings integration for quick edits without hunting for the asset.
 
 ## Changelog & License

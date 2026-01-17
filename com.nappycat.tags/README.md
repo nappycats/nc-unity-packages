@@ -8,7 +8,7 @@ Hierarchy-aware tagging for prefabs, ScriptableObjects, and loose assets. Ship c
 ## Installation
 1. Add the package to your `Packages/` directory and register it in the Package Manager.
 2. Run Nappy Cat/Tags/Rebuild Tag Index after you create or update tag assignments.
-3. Pair with `com.nappycat.foundation` to emit `Nc.Keys.Tags.*` constants (falls back to `Assets/NappyCat.Generated/` if Foundation isn’t present).
+3. Pair with `com.nappycat.foundation` to emit `Nc.Keys.Tags.*` constants (falls back to `Assets/NappyCat/NcKeys.Generated/` if Foundation isn’t present).
 
 ## Highlights
 - `NcTag` assets with path, display name, color, icon, parent, and synonym metadata.
