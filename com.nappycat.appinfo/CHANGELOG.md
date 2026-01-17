@@ -2,6 +2,13 @@
 
 All notable changes to this package will be documented in this file.
 
+## [Unreleased]
+### Added
+- Optional `NC_PKG_FOUNDATION` define gate; emits `Nc.Keys.App.*` constants to Foundation when present, otherwise to `Assets/NappyCat.Generated/`.
+### Changed
+- `NcAppInfo` is foundation-optional (plain `ScriptableObject`), keeping the data shape the same.
+- Project Settings creator now writes to `Resources/NappyCat/NcAppInfo.asset` to match runtime load path.
+
 ## [1.0.1] - 2026-01-14
 ### Added
 - Extension to `Nc` hub for easy access to app info via `Nc.AppInfo`.

@@ -14,7 +14,7 @@ Hierarchy-aware tagging for prefabs, ScriptableObjects, and loose assets. Ship c
 - `NcTag` assets with path, display name, color, icon, parent, and synonym metadata.
 - `NcTaggable` component for prefabs and scene objects.
 - `NcTagContainer` wrapper to tag assets that cannot host MonoBehaviours (sprites, clips, ScriptableObjects, etc.).
-- `NcTagIndex` builder that writes `Resources/Nappy Cat/TagIndex.asset` for runtime queries.
+- `NcTagIndex` builder that writes `Resources/NappyCat/TagIndex.asset` for runtime queries.
 - `NcTagQuery` static helpers: `AnyOf`, `AllOf`, `WhereType`, and cached index access.
 
 ## Changelog & License
