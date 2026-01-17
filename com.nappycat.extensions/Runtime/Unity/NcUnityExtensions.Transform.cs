@@ -1,5 +1,13 @@
-// Copyright (c) 2025 Nappy Cat. All rights reserved.
-// Packages/com.nappycat.extensions/Runtime/Unity/NcUnityExtensions.Transform.cs
+/*
+ * NAPPY CAT
+ *
+ * Copyright © 2025 NAPPY CAT Games
+ * http://nappycat.net
+ *
+ * Author: Stan Nesi
+ *
+ * File: Packages/com.nappycat.extensions/Runtime/Unity/NcUnityExtensions.Transform.cs
+ */
 using UnityEngine;
 
 namespace NappyCat.Extensions
