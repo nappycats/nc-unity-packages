@@ -21,7 +21,7 @@ namespace NappyCat.Bridge.TagsAddressables
 {
     /// Convenience helpers to load assets referenced by the Tag index via Addressables.
     /// Assumes your Addressables use GUID-based keys (default when using AssetReferenceGUID).
-    public static class TagAddressablesBridge
+    public static class NcTagAddressablesBridge
     {
         /// Convert a tag AssetRef to an Addressables AssetReference using its GUID.
         public static AssetReference ToAssetReference(in NcTagIndex.AssetRef a)

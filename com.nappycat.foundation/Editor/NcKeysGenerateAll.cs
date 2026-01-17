@@ -19,7 +19,7 @@ namespace NappyCat.Foundation.Editor
 {
     public static class NcKeysGenerateAll
     {
-        [MenuItem("Nappy Cat/Nc Keys/Generate All Keys", false, 0)]
+        [MenuItem("Nappy Cat/Nc.Keys/Generate All Keys", false, 0)]
         public static void GenerateAll()
         {
             int ran = 0;

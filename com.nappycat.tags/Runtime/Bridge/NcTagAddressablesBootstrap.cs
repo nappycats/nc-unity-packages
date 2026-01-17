@@ -19,19 +19,19 @@ using NappyCat.Tags;
 
 namespace NappyCat.Bridge.TagsAddressables
 {
-    /// Bootstrap component to load TagIndexSO from Addressables at runtime.
+    /// Bootstrap component to load NcTagIndex from Addressables at runtime.
     /// Sets TagQuery.Index to the loaded index, overriding the Resources fallback.
     [AddComponentMenu("Nappy Cat/Bridge/Tag Index (Addressables)")]
-    public sealed class TagAddressablesBootstrap : MonoBehaviour
+    public sealed class NcTagAddressablesBootstrap : MonoBehaviour
     {
-        [Tooltip("Addressables key or label that resolves to TagIndexSO")]
+        [Tooltip("Addressables key or label that resolves to NcTagIndex")]
         public string Key = "NC.Tags.Index"; // set a label or address for TagIndex.asset
 
-        AsyncOperationHandle<TagIndexSO> _handle;
+        AsyncOperationHandle<NcTagIndex> _handle;
 
         void OnEnable()
         {
-            _handle = Addressables.LoadAssetAsync<TagIndexSO>(Key);
+            _handle = Addressables.LoadAssetAsync<NcTagIndex>(Key);
             _handle.Completed += op =>
             {
                 if (op.Status == AsyncOperationStatus.Succeeded && op.Result)

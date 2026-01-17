@@ -12,7 +12,7 @@
 
 using UnityEngine;
 
-namespace NappyCat.Core
+namespace NappyCat.Foundation
 {
     [CreateAssetMenu(menuName = "Nappy Cat/Global Config", fileName = "NcGlobalConfig")]
     public sealed class NcGlobalConfig : ScriptableObject

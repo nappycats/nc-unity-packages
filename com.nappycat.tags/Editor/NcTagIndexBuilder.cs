@@ -105,7 +105,7 @@ namespace NappyCat.Tags.Editor
                     }
             }
 
-            // Write into TagIndexSO
+            // Write into NcTagIndex
             var entries = tagToAssets
             .Select(kv => new NcTagIndex.Entry { Tag = kv.Key, Assets = kv.Value.ToList() })
             .OrderBy(e => e.Tag.Path)
@@ -165,11 +165,11 @@ namespace NappyCat.Tags.Editor
 
         static NcTagIndex CreateOrLoadIndex()
         {
-            const string path = "Assets/Resources/Nappy Cat/NcTagIndex.asset";
+            const string path = "Assets/Resources/NappyCat/NcTagIndex.asset";
             var index = AssetDatabase.LoadAssetAtPath<NcTagIndex>(path);
             if (!index)
             {
-                System.IO.Directory.CreateDirectory("Assets/Resources/Nappy Cat");
+                System.IO.Directory.CreateDirectory("Assets/Resources/NappyCat");
                 index = ScriptableObject.CreateInstance<NcTagIndex>();
                 AssetDatabase.CreateAsset(index, path);
             }

@@ -20,9 +20,9 @@ namespace NappyCat.Tags.Editor
     public static class NcTagKeysGenerator
     {
         const string OutputRelPath = "Packages/com.nappycat.foundation/Runtime/NcKeys/NcKeys.Tags.g.cs";
-        const string FallbackRelPath = "Assets/NappyCat.Generated/NcKeys.Tags.g.cs";
+        const string FallbackRelPath = "Assets/NappyCat/NcKeys.Generated/NcKeys.Tags.g.cs";
 
-        [MenuItem("Nappy Cat/Nc Keys/Generate Keys (Tags)", false, 10)]
+        [MenuItem("Nappy Cat/Nc.Keys/Generate Keys (Tags)", false, 10)]
         public static void Generate()
         {
             var guids = AssetDatabase.FindAssets("t:NcTag");

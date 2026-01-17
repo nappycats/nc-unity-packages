@@ -21,7 +21,7 @@ namespace NappyCat.Foundation
             get
             {
                 if (_instance) return _instance;
-                _instance = Object.FindObjectOfType<T>();
+                _instance = Object.FindFirstObjectByType<T>();
                 if (_instance) return _instance;
                 var go = new GameObject($"[{typeof(T).Name}]");
                 _instance = go.AddComponent<T>();

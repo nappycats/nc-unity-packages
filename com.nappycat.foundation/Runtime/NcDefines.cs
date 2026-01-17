@@ -17,7 +17,7 @@ namespace NappyCat.Foundation
     public static class NcDefines
     {
         // Package presence (NappyCat UPMs) — set on assemblies that integrate with them
-        public const string NC_PKG_CORE      = "NC_PKG_CORE";       // com.nappycat.core
+        public const string NC_PKG_CORE      = "NC_PKG_CORE";       // com.nappycat.foundation
         public const string NC_PKG_TWEEN     = "NC_PKG_TWEEN";      // com.nappycat.tween
         public const string NC_PKG_CUEFX     = "NC_PKG_CUEFX";      // com.nappycat.cuefx
         public const string NC_PKG_UI        = "NC_PKG_UI";         // com.nappycat.ui (legacy define name kept for compatibility)

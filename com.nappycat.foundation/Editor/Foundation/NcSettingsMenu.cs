@@ -35,7 +35,7 @@ namespace NappyCat.Foundation.Editor
         [MenuItem(NcMenuPaths.SETTINGS + "App Info", false, NcMenuOrder.CORE + 0)]
         static void OpenAppInfo()
         {
-            if (!HasType("NappyCat.App.Editor.NcAppInfoSettings"))
+            if (!HasType("NappyCat.AppInfo.Editor.NcAppInfoSettings"))
             {
                 ShowMissingPackageDialog("App Info", "com.nappycat.appinfo");
                 return;

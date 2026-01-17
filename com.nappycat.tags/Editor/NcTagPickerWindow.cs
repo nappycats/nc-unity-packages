@@ -31,7 +31,7 @@ namespace NappyCat.Tags.Editor
         [MenuItem("Nappy Cat/Tags/Tag Picker")]
         public static void Open()
         {
-            var win = GetWindow<NcTagPickerWindow>(true, "NC Tag Picker");
+            var win = GetWindow<NcTagPickerWindow>(true, "NcTag Picker");
             win.minSize = new Vector2(360, 480);
             win.Show();
         }

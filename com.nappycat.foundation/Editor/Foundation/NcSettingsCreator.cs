@@ -21,7 +21,7 @@ namespace NappyCat.Foundation.Editor
             var path = "Assets/Resources/NappyCat/Settings";
             if (!AssetDatabase.IsValidFolder("Assets/Resources")) AssetDatabase.CreateFolder("Assets","Resources");
             if (!AssetDatabase.IsValidFolder("Assets/Resources/NappyCat")) AssetDatabase.CreateFolder("Assets/Resources","NappyCat");
-            if (!AssetDatabase.IsValidFolder(path)) AssetDatabase.CreateFolder("Assets/Resources/Nappy Cat","Settings");
+            if (!AssetDatabase.IsValidFolder(path)) AssetDatabase.CreateFolder("Assets/Resources/NappyCat","Settings");
             EditorUtility.DisplayDialog("Nappy Cat","Created Resources/NappyCat/Settings.","OK");
         }
 

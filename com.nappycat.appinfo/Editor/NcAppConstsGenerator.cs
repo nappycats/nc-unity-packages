@@ -29,7 +29,7 @@ namespace NappyCat.AppInfo.Editor
 #if NC_PKG_FOUNDATION
             var outPath = Path.Combine(root, "Packages/com.nappycat.foundation/Runtime/NcKeys/NcKeys.App.g.cs");
 #else
-            var outPath = Path.Combine(root, "Assets/NappyCat.Generated/NcKeys.App.g.cs");
+            var outPath = Path.Combine(root, "Assets/NappyCat/NcKeys.Generated/NcKeys.App.g.cs");
 #endif
             Directory.CreateDirectory(Path.GetDirectoryName(outPath)!);
 

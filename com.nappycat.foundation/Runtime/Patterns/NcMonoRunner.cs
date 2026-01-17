@@ -27,7 +27,7 @@ namespace NappyCat.Foundation
         public static NcMonoRunner Ensure(string name = "[NcRunner]")
         {
             if (_instance) return _instance;
-            _instance = FindObjectOfType<NcMonoRunner>();
+            _instance = Object.FindFirstObjectByType<NcMonoRunner>();
             if (_instance) return _instance;
 
             var go = new GameObject(name);
