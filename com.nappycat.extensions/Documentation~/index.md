@@ -1,8 +1,10 @@
 # Extensions (`com.nappycat.extensions`)
 
-Zero-allocation helpers for math, collections, text/time, and Unity types. Below is a cheat sheet of each category and what the helpers do.
+<div style="background:#0d1117;padding:12px;border-radius:8px;border:1px solid #30363d">
+<strong style="color:#79c0ff">Zero‑alloc helpers</strong> across math, collections, Unity, and utilities. Quick reference below with light color hints per category.
+</div>
 
-## Math
+## <span style="color:#e29b40">Math</span>
 - `NcMath.Smooth01(float t)`: smoothstep without clamping (0→1 easing).
 - `NcMath.Remap(v, a1, b1, a2, b2)`: remap value from [a1,b1] to [a2,b2].
 - `NcMath.NcRoundToNearestHalf(float v)`: round to .0/.5 steps.
@@ -15,7 +17,7 @@ Zero-allocation helpers for math, collections, text/time, and Unity types. Below
   - Pivot/line helpers: `NcRotateAroundPivot`, `NcRotateAroundPivot2D`, `NcDistanceToLine`, `NcProjectOnLine`.
   - Angles: `Vector2.NcAngleBetween360`, `Vector3.NcAngleDirection`.
 
-## Collections
+## <span style="color:#56d364">Collections</span>
 - Lists (`NcCollectionsExtensions`):
   - `NcForEachNoAlloc(Action<T>)`: index-based loop without allocs.
   - `NcSwap(i,j)`, `NcShuffle()`: in-place Fisher–Yates.
@@ -32,7 +34,7 @@ Zero-allocation helpers for math, collections, text/time, and Unity types. Below
   - `NcAddOrUpdate(key, value/update)` overloads: set new or update existing.
   - `NcTryAdd(key, value)`: add if key absent.
 
-## Unity helpers (`NcUnityExtensions.*`)
+## <span style="color:#79c0ff">Unity helpers</span> (`NcUnityExtensions.*`)
 - Transform/Component/GameObject:
   - `NcTryGetComponent<T>(out T)`, `NcFindOrAddComponent<T>()`.
   - `NcSetPositionX/Y/Z`, `NcSetLocalPosition*`, `NcResetLocal`.
@@ -50,7 +52,7 @@ Zero-allocation helpers for math, collections, text/time, and Unity types. Below
 - Renderer:
   - `NcBoundsWorld()`, `NcBoundsLocal()`.
 
-## Text & Time
+## <span style="color:#d2a8ff">Text & Time</span>
 - `NcStringExtensions.NcIsNullOrWhiteSpace()`
 - `NcTimeExtensions.NcToHumanSeconds()`: formats seconds as `1h 02m 05s`.
 
