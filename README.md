@@ -16,6 +16,12 @@ Pro packages are available in a separate repository for licensed users. Contact 
 
 ## Documentation
 - Each package includes a `Documentation~/` folder with usage notes and quickstart guides.
+- Package links:
+  - Foundation: [README](com.nappycat.foundation/README.md), [Docs](com.nappycat.foundation/Documentation~/NcScriptable.Cookbook.md)
+  - AppInfo: [README](com.nappycat.appinfo/README.md), [Docs](com.nappycat.appinfo/Documentation~/index.md)
+  - Tags: [README](com.nappycat.tags/README.md), [Docs](com.nappycat.tags/Documentation~/index.md)
+  - Pool: [README](com.nappycat.pool/README.md), [Docs](com.nappycat.pool/Documentation~/index.md)
+  - Extensions: [README](com.nappycat.extensions/README.md), [Docs](com.nappycat.extensions/Documentation~/index.md)
 
 ## Installation
 
