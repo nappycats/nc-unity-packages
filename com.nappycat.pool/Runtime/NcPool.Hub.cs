@@ -1,4 +1,4 @@
-// Packages/com.nappycat.pool/Runtime/NcPoolHub.cs
+// Packages/com.nappycat.pool/Runtime/NcPool.Hub.cs
 using System;
 using NappyCat.Pool;
 
@@ -17,4 +17,3 @@ namespace NappyCat
         }
     }
 }
-

@@ -9,5 +9,6 @@ Demonstrates pooling of reusable projectiles with zero allocations after warmup.
 ## Instructions
 
 1. Import the sample into your project.
-2. Open the included scene and press Play.
-3. Inspect the console output to confirm no allocations are reported after warmup.
+2. Drop `PoolQuickStart` on an empty GameObject.
+3. (Optional) Assign your own prefab; otherwise a cube is spawned.
+4. Press Play and hit Space to spawn pooled instances; they recycle after a short delay.
