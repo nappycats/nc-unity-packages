@@ -8,6 +8,7 @@ A collection of Unity packages for game development, providing modular tools and
 - **com.nappycat.foundation** — Core utilities, Nc.Keys hub, settings management, patterns, and editor tools.
 - **com.nappycat.appinfo** — App metadata ScriptableObject (IDs, URLs, packages) with optional Nc.Keys.App constants. Emits to Foundation when present or to `Assets/NappyCat/NcKeys.Generated/` otherwise.
 - **com.nappycat.tags** — Hierarchy-aware tags and index builder. Generates `Nc.Keys.Tags.*` when Foundation is present or falls back to `Assets/NappyCat/NcKeys.Generated/`.
+- **com.nappycat.pool** — Lightweight object and GameObject pooling with optional `Nc.Pool` hub helper.
 
 ### Pro Packages
 Pro packages are available in a separate repository for licensed users. Contact us for access.

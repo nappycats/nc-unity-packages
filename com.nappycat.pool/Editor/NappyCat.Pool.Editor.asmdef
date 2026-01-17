@@ -1,0 +1,12 @@
+{
+  "name": "NappyCat.Pool.Editor",
+  "autoReferenced": true,
+  "allowUnsafeCode": false,
+  "references": [
+    "NappyCat.Pool"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "versionDefines": []
+}

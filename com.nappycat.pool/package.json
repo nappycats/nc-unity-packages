@@ -1,0 +1,15 @@
+{
+  "name": "com.nappycat.pool",
+  "displayName": "NC \u2022 Pool",
+  "version": "0.1.0",
+  "unity": "2022.3",
+  "description": "Lightweight object and GameObject pooling with optional Nc hub helper.",
+  "keywords": [
+    "nappycat",
+    "pool"
+  ],
+  "author": {
+    "name": "Nappy Cat",
+    "url": "http://nappycat.net"
+  }
+}
