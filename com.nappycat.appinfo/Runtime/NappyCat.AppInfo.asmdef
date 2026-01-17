@@ -1,0 +1,14 @@
+{
+  "name": "NappyCat.AppInfo",
+  "rootNamespace": "NappyCat.AppInfo",
+  "references": [],
+  "includePlatforms": [],
+  "autoReferenced": true,
+  "versionDefines": [
+    {
+      "name": "com.nappycat.foundation",
+      "expression": "0.1.0",
+      "define": "NC_PKG_FOUNDATION"
+    }
+  ]
+}

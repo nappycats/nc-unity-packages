@@ -1,0 +1,19 @@
+{
+  "name": "com.nappycat.appinfo",
+  "displayName": "NC \u2022 App Info",
+  "version": "0.1.0",
+  "unity": "2022.3",
+  "description": "Project-level app metadata (Title, IDs, URLs) and codegen constants.",
+  "license": "MIT",
+  "keywords": [
+    "nappycat",
+    "app",
+    "info"
+  ],
+  "author": {
+    "name": "Nappy Cat",
+    "email": "dev@nappycat.net",
+    "url": "https://nappycat.net"
+  },
+  "samples": []
+}

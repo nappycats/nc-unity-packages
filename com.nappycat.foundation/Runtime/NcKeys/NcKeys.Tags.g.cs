@@ -8,15 +8,18 @@
  *
  * File: Packages/com.nappycat.foundation/Runtime/NcKeys.Tags.g.cs
  */
-namespace NappyCat.Core
+namespace NappyCat
 {
-    public static partial class NcKeys
+    public static partial class Nc
     {
-        public static partial class Tags
+        public static partial class Keys
         {
-            public const string CAMERA = "camera";
-            public const string GAMEOBJECT = "gameobject";
-            public const string SCENE = "scene";
+            public static partial class Tags
+            {
+                public const string CAMERA = "camera";
+                public const string GAMEOBJECT = "gameobject";
+                public const string SCENE = "scene";
+            }
         }
     }
 }

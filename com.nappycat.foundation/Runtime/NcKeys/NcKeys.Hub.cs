@@ -6,18 +6,17 @@
  *
  * Author: Stan Nesi
  *
- * File: Packages/com.nappycat.foundation/Runtime/NcKeys.Params.g.cs
+ * File: Packages/com.nappycat.foundation/Runtime/NcKeys/NcKeys.Hub.cs
  */
 namespace NappyCat
 {
+    /// <summary>
+    /// Canonical keys hub. Packages hang constants off Nc.Keys.* so callers have a single entry point.
+    /// </summary>
     public static partial class Nc
     {
         public static partial class Keys
         {
-            public static partial class Params
-            {
-                public const string AUDIO_MUTE = "audio.mute";
-            }
         }
     }
 }

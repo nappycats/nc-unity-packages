@@ -19,13 +19,13 @@ namespace NappyCat.Foundation.Editor
 {
     public static class NcKeysGenerateAll
     {
-        [MenuItem("Nappy Cat/NcKeys/Generate All Keys", false, 0)]
+        [MenuItem("Nappy Cat/Nc Keys/Generate All Keys", false, 0)]
         public static void GenerateAll()
         {
             int ran = 0;
             ran += TryInvoke("NappyCat.Tags.Editor.NcTagKeysGenerator", "Generate");
             ran += TryInvoke("NappyCat.Param.Editor.NcParamKeysGenerator", "Generate");
-            // ran += TryInvoke("NappyCat.App.Editor.NcAppConstsGenerator", "Generate");
+            ran += TryInvoke("NappyCat.AppInfo.Editor.NcAppConstsGenerator", "Generate");
             if (ran == 0)
                 Debug.LogWarning("[NcKeys] No generators found. Are Tags/Params packages installed?");
         }

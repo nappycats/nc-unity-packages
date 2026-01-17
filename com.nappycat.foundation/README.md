@@ -8,6 +8,7 @@ Includes
 - Foundation/NcSettingsBase + NcSettings<T> + NcSettingsLocator: typed singletons + discovery under Resources/NappyCat/Settings
 - Patterns/NcSingleton + NcPersistentSingleton: lightweight singletons
 - Editor/Foundation/NcSettingsCreator: menu to create the Resources/NappyCat/Settings folder
+- Nc.Keys hub for shared constants such as Tags/Params/App info
 
 Usage
 - Define typed settings per domain via `public sealed class MySettings : NcSettings<MySettings> { ... }`.
