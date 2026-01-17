@@ -39,21 +39,27 @@ namespace NappyCat.Pool.Tests.PlayMode
         public IEnumerator NcGoPool_InvokesPooledBehaviourHooks()
         {
             var prefab = new GameObject("pooled-prefab");
-            var tracker = prefab.AddComponent<PooledTracker>();
+            var trackerA = prefab.AddComponent<PooledTracker>();
+            var trackerB = prefab.AddComponent<PooledTracker>();
             prefab.SetActive(false);
 
             var pool = new NcGoPool(prefab, warm: 0);
             var inst = pool.Get();
-            var instTracker = inst.GetComponent<PooledTracker>();
+            var trackers = inst.GetComponents<PooledTracker>();
 
-            Assert.AreEqual(1, instTracker.AcquireCount);
-            Assert.AreEqual(0, instTracker.ReleaseCount);
+            Assert.AreEqual(2, trackers.Length);
+            Assert.AreEqual(1, trackers[0].AcquireCount);
+            Assert.AreEqual(1, trackers[1].AcquireCount);
+            Assert.AreEqual(0, trackers[0].ReleaseCount);
+            Assert.AreEqual(0, trackers[1].ReleaseCount);
 
             pool.Release(inst);
-            Assert.AreEqual(1, instTracker.ReleaseCount);
+            Assert.AreEqual(1, trackers[0].ReleaseCount);
+            Assert.AreEqual(1, trackers[1].ReleaseCount);
 
             pool.Get();
-            Assert.AreEqual(2, instTracker.AcquireCount);
+            Assert.AreEqual(2, trackers[0].AcquireCount);
+            Assert.AreEqual(2, trackers[1].AcquireCount);
 
             pool.Release(inst);
             pool.Clear();

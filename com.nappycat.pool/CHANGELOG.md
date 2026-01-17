@@ -7,3 +7,5 @@ All notable changes to this package are documented here.
 - Docs now reference the `NappyCat.Pool` namespace and the `Nc.Pool` hub helper.
 - Added working quick-start sample (`PoolQuickStart`) and filled in edit/play mode smoke tests.
 - `NcGoPool` now calls `NcPooledBehaviour` hooks on acquire/release.
+- Removed unused `NcPoolPolicySO` stub (will reintroduce when a concrete policy asset is needed).
+- Removed unused `INcPoolable` interface to reduce API surface.

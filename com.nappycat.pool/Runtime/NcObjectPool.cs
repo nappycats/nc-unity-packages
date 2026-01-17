@@ -4,15 +4,6 @@ using System.Collections.Generic;
 namespace NappyCat.Pool
 {
     /// <summary>
-    /// Optional lifecycle hooks for pooled objects.
-    /// </summary>
-    public interface INcPoolable
-    {
-        void OnRent();
-        void OnReturn();
-    }
-
-    /// <summary>
     /// Policy interface to customize pooled object lifecycle.
     /// </summary>
     public interface INcPoolPolicy<T>
@@ -24,7 +15,8 @@ namespace NappyCat.Pool
     }
 
     /// <summary>
-    /// Policy-driven object pool. Complements <see cref="NcPool{T}"/> factory-based API.
+    /// Policy-driven object pool.
+    /// Complements <see cref="NcPool{T}"/>factory-based API.
     /// </summary>
     public sealed class NcObjectPool<T>
     {
@@ -60,4 +52,3 @@ namespace NappyCat.Pool
         }
     }
 }
-

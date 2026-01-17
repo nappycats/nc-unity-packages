@@ -8,6 +8,7 @@ namespace NappyCat.Pool
     public sealed class NcGoPool
     {
         readonly Transform _root; readonly GameObject _prefab; readonly Stack<GameObject> _stack = new();
+        static readonly List<NcPooledBehaviour> _pooledCache = new();
         public NcGoPool(GameObject prefab, Transform root = null, int warm=0)
         { _prefab = prefab; _root = root; for (int i=0;i<warm;i++){ var go=Object.Instantiate(_prefab,_root); go.SetActive(false); _stack.Push(go);} }
         public GameObject Get(Transform parent=null)
@@ -29,13 +30,15 @@ namespace NappyCat.Pool
 
         static void InvokeAcquire(GameObject go)
         {
-            if (go.TryGetComponent<NcPooledBehaviour>(out var pooled))
-                pooled.OnPoolAcquire();
+            go.GetComponents(_pooledCache);
+            for (int i=0; i<_pooledCache.Count; i++) _pooledCache[i].OnPoolAcquire();
+            _pooledCache.Clear();
         }
         static void InvokeRelease(GameObject go)
         {
-            if (go.TryGetComponent<NcPooledBehaviour>(out var pooled))
-                pooled.OnPoolRelease();
+            go.GetComponents(_pooledCache);
+            for (int i=0; i<_pooledCache.Count; i++) _pooledCache[i].OnPoolRelease();
+            _pooledCache.Clear();
         }
     }
 }
