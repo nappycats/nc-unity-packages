@@ -1,4 +1,4 @@
-# NappyCat • Core • Foundation
+# NappyCat • Foundation
 
 Tiny bedrock package with minimal, stable utilities used by all other packages.
 
@@ -22,6 +22,9 @@ Docs & examples
   - Shape Style asset
   - Audio Playlist
   - App Settings (NcAppSettings)
+
+Documentation
+- `Documentation~/` contains cookbooks and design notes for core utilities.
 
 Samples
 - Import `Samples~/AppSettingsQuickStart` to see a minimal bootstrap that reads `NcAppSettings.Instance`.

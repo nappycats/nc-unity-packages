@@ -20,6 +20,9 @@ Centralised app metadata and code generation for shipping games built on the Nap
 - `NcAppConstsGenerator` editor tool that creates strongly-typed constants under `Nc.Keys.App.*` (targets Foundation when present, otherwise `Assets/NappyCat/NcKeys.Generated/`).
 - Project Settings integration for quick edits without hunting for the asset.
 
+## Documentation
+- See `Documentation~/index.md` for setup, runtime access, and codegen targets.
+
 ## Changelog & License
 - See `CHANGELOG.md` for release history.
 - Licensed under the MIT License (`LICENSE.md`).

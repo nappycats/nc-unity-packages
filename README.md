@@ -13,6 +13,9 @@ A collection of Unity packages for game development, providing modular tools and
 ### Pro Packages
 Pro packages are available in a separate repository for licensed users. Contact us for access.
 
+## Documentation
+- Each package includes a `Documentation~/` folder with usage notes and quickstart guides.
+
 ## Installation
 
 1. Open your Unity project.

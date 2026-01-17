@@ -51,3 +51,6 @@ var hubPool = NappyCat.Nc.Pool.Create(() => new Bullet(), b => b.Reset(), warm:1
 
 ## Samples
 - `Samples~/PoolingQuickStart`: drop `PoolQuickStart` on a GameObject, hit Play, and press Space to spawn pooled cubes that recycle automatically.
+
+## Documentation
+- See `Documentation~/index.md` for API overview and quickstart snippets.

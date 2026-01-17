@@ -1,4 +1,4 @@
-# Nappy Cat Core • Tags
+# Nappy Cat • Tags
 
 Hierarchy-aware tagging for prefabs, ScriptableObjects, and loose assets. Ship curated tag libraries, generate searchable indices, and query everything with a few helper methods.
 
@@ -16,6 +16,9 @@ Hierarchy-aware tagging for prefabs, ScriptableObjects, and loose assets. Ship c
 - `NcTagContainer` wrapper to tag assets that cannot host MonoBehaviours (sprites, clips, ScriptableObjects, etc.).
 - `NcTagIndex` builder that writes `Resources/NappyCat/TagIndex.asset` for runtime queries.
 - `NcTagQuery` static helpers: `AnyOf`, `AllOf`, `WhereType`, and cached index access.
+
+## Documentation
+- See `Documentation~/index.md` for setup, key generation, and query examples.
 
 ## Changelog & License
 - See `CHANGELOG.md` for release notes.
