@@ -1,0 +1,11 @@
+{
+  "name": "NappyCat.Extensions",
+  "autoReferenced": true,
+  "versionDefines": [
+    {
+      "name": "com.unity.ugui",
+      "expression": "0.1.0",
+      "define": "NC_UNITY_UGUI"
+    }
+  ]
+}

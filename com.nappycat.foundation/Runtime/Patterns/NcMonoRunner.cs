@@ -14,6 +14,7 @@ using UnityEngine;
 
 namespace NappyCat.Foundation
 {
+    [AddComponentMenu("Nappy Cat/Runners/NcMono Runner")]
     /// <summary>
     /// Shared lightweight runner for packages that need a
     /// coroutine host but don't want hidden objects per package.

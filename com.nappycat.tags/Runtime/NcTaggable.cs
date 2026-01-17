@@ -16,7 +16,7 @@ using UnityEngine;
 namespace NappyCat.Tags
 {
     [DisallowMultipleComponent]
-    [AddComponentMenu("Nappy Cat/Tags/Taggable")]
+    [AddComponentMenu("Nappy Cat/Tags/NcTaggable")]
     public class NcTaggable : MonoBehaviour
     {
         public List<NcTag> Tags = new();

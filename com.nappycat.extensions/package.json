@@ -1,0 +1,16 @@
+{
+  "name": "com.nappycat.extensions",
+  "displayName": "NC \u2022 Extensions",
+  "version": "0.1.0",
+  "unity": "2022.3",
+  "description": "Zero-alloc math and Unity helpers.",
+  "keywords": [
+    "nappycat",
+    "core",
+    "extensions"
+  ],
+  "author": {
+    "name": "Nappy Cat \u2022 Core",
+    "url": "http://nappycat.net"
+  }
+}
