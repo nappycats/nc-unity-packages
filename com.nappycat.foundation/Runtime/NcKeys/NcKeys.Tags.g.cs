@@ -16,9 +16,6 @@ namespace NappyCat
         {
             public static partial class Tags
             {
-                public const string CAMERA = "camera";
-                public const string GAMEOBJECT = "gameobject";
-                public const string SCENE = "scene";
             }
         }
     }

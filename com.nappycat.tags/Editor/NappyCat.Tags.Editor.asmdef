@@ -1,0 +1,24 @@
+{
+  "name": "NappyCat.Tags.Editor",
+  "rootNamespace": "NappyCat.Tags.Editor",
+  "references": [
+    "NappyCat.Tags"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [
+    {
+      "name": "com.nappycat.foundation",
+      "expression": "0.1.0",
+      "define": "NC_PKG_FOUNDATION"
+    }
+  ],
+  "noEngineReferences": false
+}
