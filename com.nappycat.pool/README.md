@@ -8,6 +8,7 @@ Highlights
 - `NcObjectPool<T>` + `INcPoolPolicy<T>`: policy-based lifecycle hooks.
 - `INcPoolable`: optional lifecycle interface for pooled items.
 - `Nc.Pool.Create(...)`: hub helper for quick pools (no extra setup).
+- `NcPooledBehaviour`: drop-in MonoBehaviour hook for acquire/release when using `NcGoPool`.
 
 Examples
 ```

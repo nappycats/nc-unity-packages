@@ -34,5 +34,40 @@ namespace NappyCat.Pool.Tests.PlayMode
             Object.Destroy(root.gameObject);
             yield break;
         }
+
+        [UnityTest]
+        public IEnumerator NcGoPool_InvokesPooledBehaviourHooks()
+        {
+            var prefab = new GameObject("pooled-prefab");
+            var tracker = prefab.AddComponent<PooledTracker>();
+            prefab.SetActive(false);
+
+            var pool = new NcGoPool(prefab, warm: 0);
+            var inst = pool.Get();
+            var instTracker = inst.GetComponent<PooledTracker>();
+
+            Assert.AreEqual(1, instTracker.AcquireCount);
+            Assert.AreEqual(0, instTracker.ReleaseCount);
+
+            pool.Release(inst);
+            Assert.AreEqual(1, instTracker.ReleaseCount);
+
+            pool.Get();
+            Assert.AreEqual(2, instTracker.AcquireCount);
+
+            pool.Release(inst);
+            pool.Clear();
+            Object.Destroy(prefab);
+            yield break;
+        }
+
+        sealed class PooledTracker : NcPooledBehaviour
+        {
+            public int AcquireCount;
+            public int ReleaseCount;
+
+            public override void OnPoolAcquire() => AcquireCount++;
+            public override void OnPoolRelease() => ReleaseCount++;
+        }
     }
 }
