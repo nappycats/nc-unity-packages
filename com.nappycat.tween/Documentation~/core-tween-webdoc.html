@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>NappyCat Tween Documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f5f6f8;
+      --fg: #20222a;
+      --accent: #ff5c9e;
+      --accent-dark: #d64579;
+      --accent-soft: rgba(255,92,158,0.16);
+      --panel: #ffffff;
+      --border: #d6d8dd;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121316;
+        --fg: #f2f4f8;
+        --panel: #1a1b1f;
+        --border: #2b2c31;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      padding: 3rem 1.5rem 2.5rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.25);
+    }
+    header h1 { margin: 0 0 0.5rem; font-size: 2.8rem; letter-spacing: 0.02em; }
+    header p { margin: 0; font-size: 1.1rem; opacity: 0.92; }
+    main {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 1.5rem;
+      padding: 2rem clamp(1rem, 4vw, 4rem);
+    }
+    nav {
+      position: sticky;
+      top: calc(120px + 1rem);
+      align-self: start;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.25rem;
+      box-shadow: 0 24px 48px rgba(0,0,0,0.08);
+    }
+    nav h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.65;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.4rem;
+    }
+    nav ul li { list-style: none; }
+    nav a {
+      color: inherit;
+      text-decoration: none;
+      padding: 0.4rem 0.6rem;
+      border-radius: 8px;
+      display: block;
+      transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+      font-weight: 600;
+    }
+    nav a.active {
+      background: var(--accent);
+      color: #fff;
+      transform: translateX(6px);
+      box-shadow: 0 8px 16px rgba(214,69,121,0.25);
+    }
+    nav a:hover {
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+    }
+    .subnav {
+      margin: 0.4rem 0 0 0.6rem;
+      padding: 0.4rem 0 0.4rem 0.7rem;
+      border-left: 2px solid var(--accent-soft);
+      display: grid;
+      gap: 0.2rem;
+    }
+    .subnav a {
+      font-weight: 500;
+      font-size: 0.9rem;
+      opacity: 0.82;
+    }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      margin-bottom: 1.5rem;
+      box-shadow: 0 44px 64px rgba(0,0,0,0.06);
+    }
+    section h2 {
+      margin-top: 0;
+      font-size: 1.9rem;
+      color: var(--accent-dark);
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    section h2::after {
+      content: "";
+      display: inline-block;
+      width: 48px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+    section h3 {
+      margin-top: 1.8rem;
+      font-size: 1.3rem;
+      color: var(--accent);
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    section h4 {
+      margin-top: 1.2rem;
+      font-size: 1.05rem;
+      opacity: 0.85;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-dark);
+    }
+    code, pre {
+      font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+      background: rgba(32,34,42,0.08);
+      color: inherit;
+    }
+    pre {
+      padding: 1.1rem;
+      border-radius: 14px;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+    table th, table td {
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0.4rem;
+      text-align: left;
+    }
+    table th { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.08em; opacity: 0.7; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.12);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+    .api-list {
+      display: grid;
+      gap: 0.8rem;
+    }
+    .api-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      background: rgba(32,34,42,0.04);
+      box-shadow: inset 4px 0 0 var(--accent-soft);
+    }
+    .api-item small {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--fg);
+      opacity: 0.68;
+    }
+    .anchor-link {
+      margin-left: auto;
+      font-size: 0.82rem;
+      text-decoration: none;
+      opacity: 0;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      color: var(--accent-dark);
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+    }
+    .api-item h3:hover .anchor-link,
+    .api-item h3:focus-within .anchor-link {
+      opacity: 0.85;
+      transform: translateY(-1px);
+    }
+    footer {
+      text-align: center;
+      padding: 3rem 1rem 4rem;
+      color: rgba(32,34,42,0.6);
+    }
+    @media (max-width: 960px) {
+      main { grid-template-columns: 1fr; }
+      nav { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>NappyCat Tween</h1>
+    <p>Zero-GC tweens, sequences, and manual ticking for Unity.</p>
+  </header>
+  <main>
+    <nav>
+      <h2>Contents</h2>
+      <ul>
+        <li><a href="#intro">Overview</a></li>
+        <li><a href="#install">Installation</a></li>
+        <li><a href="#quickstart">Quick Start</a></li>
+        <li><a href="#concepts">Concepts</a></li>
+        <li><a href="#api">API Highlights</a></li>
+        <li>
+          <a href="#api-reference">API Reference</a>
+          <ul class="subnav">
+            <li><a href="#api-nctween">NcTween</a></li>
+            <li><a href="#api-tweenhandle">TweenHandle</a></li>
+            <li><a href="#api-options">NcTweenOptions</a></li>
+            <li><a href="#api-events">NcTweenEvents</a></li>
+            <li><a href="#api-loop">NcLoop</a></li>
+            <li><a href="#api-clock">NcClock</a></li>
+            <li><a href="#api-ease">NcEase</a></li>
+            <li><a href="#api-sequence">NcSequence</a></li>
+            <li><a href="#api-runner">NcTweenRunner</a></li>
+            <li><a href="#api-extensions">Extension Methods</a></li>
+            <li><a href="#api-example">Manual Clock Example</a></li>
+            <li><a href="#api-related">Related Packages</a></li>
+          </ul>
+        </li>
+        <li><a href="#tooling">Tooling</a></li>
+        <li><a href="#links">Related Links</a></li>
+      </ul>
+    </nav>
+    <article>
+      <section id="intro">
+        <div class="badge">Namespace: NappyCat.Tween</div>
+        <h2>Overview</h2>
+        <p>NappyCat Tween is a delegate-driven tween engine optimised for runtime gameplay and tooling. All tweens and sequences are pooled, giving you predictable zero-GC behaviour after setup. The API surface is deliberately small and mirrors the simplicity of Unity’s own scripting reference.</p>
+        <div class="grid">
+          <div>
+            <h3>Features</h3>
+            <ul>
+              <li>Typed `To` helpers for floats, vectors, quaternions, and colours.</li>
+              <li>Pooled sequences with serial (`Then`) and parallel (`Also`) composition.</li>
+              <li>Manual ticking support for Timeline and editor previews.</li>
+              <li>Group management for coordinated pause/kill operations.</li>
+              <li>Extension methods for common Unity components.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Package metadata</h3>
+            <table>
+              <tr><th>Item</th><th>Value</th></tr>
+              <tr><td>Runtime assembly</td><td><code>NappyCat.Tween</code></td></tr>
+              <tr><td>Editor assembly</td><td><code>NappyCat.Tween.Editor</code></td></tr>
+              <tr><td>Unity version</td><td>2021.3 LTS+</td></tr>
+              <tr><td>Dependencies</td><td>None</td></tr>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="install">
+        <h2>Installation</h2>
+        <ol>
+          <li>Copy the <code>com.NappyCat.Tween</code> folder into your project’s <code>Packages/</code> directory.</li>
+          <li>Open Unity and go to <strong>Window → Package Manager → + → Add package from disk…</strong>.</li>
+          <li>Select <code>Packages/com.NappyCat.Tween/package.json</code>.</li>
+          <li>(Optional) Import the “Samples” package sample from the Package Manager window.</li>
+        </ol>
+      </section>
+
+      <section id="quickstart">
+        <h2>Quick Start</h2>
+        <p>Create a simple tween using the `NcTween.To` helper:</p>
+<pre><code>using NappyCat.Tween;
+using UnityEngine;
+
+public sealed class HoverPulse : MonoBehaviour
+{
+    TweenHandle _handle;
+
+    void OnEnable()
+    {
+        _handle = NcTween.To(
+            () => transform.position,
+            p =&gt; transform.position = p,
+            transform.position + Vector3.up * 0.5f,
+            new NcTweenOptions(duration: 0.5f, ease: NcEase.OutQuad));
+
+        NcTween.OnComplete(_handle, () =&gt; Debug.Log("Hover finished"));
+    }
+
+    void OnDisable()
+    {
+        NcTween.Kill(_handle);
+    }
+}</code></pre>
+      </section>
+
+      <section id="concepts">
+        <h2>Concepts</h2>
+        <h3>Tween handles</h3>
+        <p>Every call to <code>NcTween.To</code> returns a <code>TweenHandle</code>. Use it to pause, kill, or attach callbacks. Handles are tiny structs containing only an ID, so you can store them freely.</p>
+
+        <h3>Options &amp; Events</h3>
+        <p><code>NcTweenOptions</code> captures timing, easing, looping, clock source, and group ID. <code>NcTweenEvents</code> provides optional callbacks fired at key points in the tween lifecycle.</p>
+
+        <h3>Runner lifecycle</h3>
+        <p>The first tween automatically spawns <code>NcTweenRunner</code> on a hidden <code>~NcTweenRunner</code> GameObject. Set <code>persistentMode</code> to control whether it persists across scenes.</p>
+
+        <h3>Manual ticking</h3>
+        <p>Switch a tween to <code>NcClock.Manual</code> when you want deterministic stepping:</p>
+<pre><code>var options = new NcTweenOptions(1f, clock: NcClock.Manual);
+var handle = NcTween.To(() =&gt; progress, v =&gt; progress = v, 1f, options);
+
+// timeline update
+NcTween.ManualTick(deltaTime);</code></pre>
+
+        <h3>Sequences</h3>
+        <p>Use <code>NcSequence</code> to compose serial and parallel steps. Sequences are pooled and allocation-free after construction.</p>
+      </section>
+
+      <section id="api">
+        <h2>API Highlights</h2>
+        <div class="api-list">
+          <div class="api-item">
+            <strong>NcTween.To</strong>
+            <p>Typed factories for float / Vector2 / Vector3 / Vector4 / Quaternion / Color. Accept <code>NcTweenOptions</code> and optional <code>NcTweenEvents</code>.</p>
+          </div>
+          <div class="api-item">
+            <strong>NcTween.Kill / Pause</strong>
+            <p>Stop or pause a single tween or entire group.</p>
+          </div>
+          <div class="api-item">
+            <strong>Extension methods</strong>
+            <p>Convenience helpers such as <code>transform.NcMoveTo</code>, <code>canvasGroup.NcAlphaTo</code>, <code>image.NcFillTo</code>, <code>spriteRenderer.NcColorTo</code>.</p>
+          </div>
+          <div class="api-item">
+            <strong>NcSequence</strong>
+            <p>Fluent composition with <code>Then</code>, <code>Also</code>, and <code>OnComplete</code>. Works seamlessly with core tweens.</p>
+          </div>
+        </div>
+        <p>Jump to the full <a href="#api-reference">API reference</a> for detailed member listings.</p>
+      </section>
+
+      <section id="api-reference">
+        <h2>NappyCat Tween API Reference</h2>
+        <p>This reference mirrors Unity&rsquo;s scripting manual format. All types live in <code>NappyCat.Tween</code> unless noted otherwise.</p>
+
+        <div class="api-list">
+          <div class="api-item">
+            <h3 id="api-nctween">NcTween <small>(static class)</small><a class="anchor-link" href="#api-nctween" aria-label="Link to NcTween">#</a></h3>
+            <p>Static facade for creating and controlling tweens. Provides typed <code>To</code> overloads, manual ticking, and group management.</p>
+            <h4>Methods</h4>
+            <table>
+              <thead>
+                <tr><th>Method</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>TweenHandle To(Func&lt;float&gt; getter, Action&lt;float&gt; setter, float to, in NcTweenOptions options, in NcTweenEvents events = default)</code></td><td>Creates and starts a float tween.</td></tr>
+                <tr><td><code>TweenHandle To(Func&lt;Vector2&gt; getter, Action&lt;Vector2&gt; setter, Vector2 to, in NcTweenOptions options, in NcTweenEvents events = default)</code></td><td>Creates and starts a Vector2 tween.</td></tr>
+                <tr><td><code>TweenHandle To(Func&lt;Vector3&gt; getter, Action&lt;Vector3&gt; setter, Vector3 to, in NcTweenOptions options, in NcTweenEvents events = default)</code></td><td>Creates and starts a Vector3 tween.</td></tr>
+                <tr><td><code>TweenHandle To(Func&lt;Vector4&gt; getter, Action&lt;Vector4&gt; setter, Vector4 to, in NcTweenOptions options, in NcTweenEvents events = default)</code></td><td>Creates and starts a Vector4 tween.</td></tr>
+                <tr><td><code>TweenHandle To(Func&lt;Quaternion&gt; getter, Action&lt;Quaternion&gt; setter, Quaternion to, in NcTweenOptions options, in NcTweenEvents events = default)</code></td><td>Creates and starts a Quaternion tween (slerp).</td></tr>
+                <tr><td><code>TweenHandle To(Func&lt;Color&gt; getter, Action&lt;Color&gt; setter, Color to, in NcTweenOptions options, in NcTweenEvents events = default)</code></td><td>Creates and starts a Color tween.</td></tr>
+                <tr><td><code>void Kill(TweenHandle handle, bool complete = false)</code></td><td>Stops the tween; optionally completes before stopping.</td></tr>
+                <tr><td><code>void Pause(TweenHandle handle, bool pause = true)</code></td><td>Pauses or resumes the tween.</td></tr>
+                <tr><td><code>void KillGroup(int groupId, bool complete = false)</code></td><td>Kills all tweens created with the same <code>NcTweenOptions.GroupId</code>.</td></tr>
+                <tr><td><code>void PauseGroup(int groupId, bool pause = true)</code></td><td>Pauses or resumes a group.</td></tr>
+                <tr><td><code>bool OnStart(TweenHandle handle, Action callback)</code></td><td>Registers a callback fired when the tween starts; returns <code>false</code> if the handle is invalid.</td></tr>
+                <tr><td><code>bool OnUpdate(TweenHandle handle, Action&lt;float&gt; callback)</code></td><td>Registers a callback executed every tick with the eased progress (0&ndash;1).</td></tr>
+                <tr><td><code>bool OnLoop(TweenHandle handle, Action&lt;int&gt; callback)</code></td><td>Registers a callback when a loop completes. Parameter is remaining loops (or -1 for infinite).</td></tr>
+                <tr><td><code>bool OnComplete(TweenHandle handle, Action callback)</code></td><td>Registers a callback when the tween finishes.</td></tr>
+                <tr><td><code>bool OnKill(TweenHandle handle, Action callback)</code></td><td>Registers a callback when the tween is killed.</td></tr>
+                <tr><td><code>void ManualTick(float deltaTime)</code></td><td>Advances all tweens using <code>NcClock.Manual</code> by <code>deltaTime</code> seconds.</td></tr>
+                <tr><td><code>NcTweenRunner EnsureRunner()</code></td><td>Ensures the singleton runner exists (auto-created otherwise).</td></tr>
+              </tbody>
+            </table>
+            <h4>Properties</h4>
+            <table>
+              <thead>
+                <tr><th>Property</th><th>Type</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>int ActiveCount</code></td><td><code>int</code></td><td>Number of active tweens.</td></tr>
+                <tr><td><code>bool AnyActive</code></td><td><code>bool</code></td><td>Returns <code>true</code> if at least one tween is active.</td></tr>
+                <tr><td><code>double LastTickMicros</code></td><td><code>double</code></td><td>Microseconds spent in the last tick pass.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="api-item">
+            <h3 id="api-tweenhandle">TweenHandle <small>(struct)</small><a class="anchor-link" href="#api-tweenhandle" aria-label="Link to TweenHandle">#</a></h3>
+            <p>Lightweight identifier for active tweens. Contains only the tween ID.</p>
+            <h4>Members</h4>
+            <table>
+              <thead>
+                <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>int Id</code></td><td><code>int</code></td><td>Unique identifier (internal use).</td></tr>
+                <tr><td><code>bool IsValid</code></td><td><code>bool</code></td><td>Returns <code>true</code> if the handle currently refers to a live tween.</td></tr>
+              </tbody>
+            </table>
+            <p><strong>Operators</strong></p>
+            <ul>
+              <li>Equality and inequality operators compare handles by <code>Id</code>.</li>
+            </ul>
+          </div>
+
+          <div class="api-item">
+            <h3 id="api-options">NcTweenOptions <small>(struct)</small><a class="anchor-link" href="#api-options" aria-label="Link to NcTweenOptions">#</a></h3>
+            <p>Immutable options used when creating a tween.</p>
+            <h4>Fields</h4>
+            <table>
+              <thead>
+                <tr><th>Field</th><th>Type</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>float Duration</code></td><td><code>float</code></td><td>Length of the tween in seconds. Clamped to &ge; 0.000001.</td></tr>
+                <tr><td><code>float Delay</code></td><td><code>float</code></td><td>Optional delay before the tween starts.</td></tr>
+                <tr><td><code>NcEase Ease</code></td><td><code>NcEase</code></td><td>Built-in easing function.</td></tr>
+                <tr><td><code>AnimationCurve CustomCurve</code></td><td><code>AnimationCurve</code></td><td>Optional custom curve (used when <code>Ease == NcEase.CustomCurve</code>).</td></tr>
+                <tr><td><code>NcLoop Loop</code></td><td><code>NcLoop</code></td><td>Looping mode (<code>Once</code>, <code>Loop</code>, <code>Yoyo</code>).</td></tr>
+                <tr><td><code>int LoopCount</code></td><td><code>int</code></td><td>Number of loops. <code>0</code> means infinite (for Loop/Yoyo).</td></tr>
+                <tr><td><code>NcClock Clock</code></td><td><code>NcClock</code></td><td>Clock used (<code>Scaled</code>, <code>Unscaled</code>, <code>Manual</code>).</td></tr>
+                <tr><td><code>int GroupId</code></td><td><code>int</code></td><td>User-defined group identifier.</td></tr>
+              </tbody>
+            </table>
+            <h4>Constructor</h4>
+            <p><code>NcTweenOptions(float duration, float delay = 0f, NcEase ease = NcEase.OutQuad, AnimationCurve customCurve = null, NcLoop loop = NcLoop.Once, int loopCount = 1, NcClock clock = NcClock.Scaled, int groupId = 0)</code></p>
+            <h4>Helper Methods</h4>
+            <table>
+              <thead>
+                <tr><th>Method</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>NcTweenOptions WithGroup(int groupId)</code></td><td>Returns a copy with a different group ID.</td></tr>
+                <tr><td><code>NcTweenOptions WithClock(NcClock clock)</code></td><td>Returns a copy using another clock.</td></tr>
+                <tr><td><code>NcTweenOptions WithLoop(NcLoop loop, int loopCount = 1)</code></td><td>Returns a copy with new loop settings.</td></tr>
+                <tr><td><code>NcTweenOptions WithEase(NcEase ease, AnimationCurve customCurve = null)</code></td><td>Returns a copy with a different ease/curve.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="api-item">
+            <h3 id="api-events">NcTweenEvents <small>(struct)</small><a class="anchor-link" href="#api-events" aria-label="Link to NcTweenEvents">#</a></h3>
+            <p>Optional callbacks that can be passed during tween creation.</p>
+            <table>
+              <thead>
+                <tr><th>Field</th><th>Type</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>Action OnStart</code></td><td><code>Action</code></td><td>Fired when the tween starts.</td></tr>
+                <tr><td><code>Action&lt;float&gt; OnUpdate</code></td><td><code>Action&lt;float&gt;</code></td><td>Fired each tick with eased progress.</td></tr>
+                <tr><td><code>Action&lt;int&gt; OnLoop</code></td><td><code>Action&lt;int&gt;</code></td><td>Fired when a loop completes. Parameter is loops remaining (or -1 for infinite).</td></tr>
+                <tr><td><code>Action OnComplete</code></td><td><code>Action</code></td><td>Fired on completion.</td></tr>
+                <tr><td><code>Action OnKill</code></td><td><code>Action</code></td><td>Fired when the tween is killed.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="api-item">
+            <h3 id="api-loop">NcLoop <small>(enum)</small><a class="anchor-link" href="#api-loop" aria-label="Link to NcLoop">#</a></h3>
+            <table>
+              <thead>
+                <tr><th>Value</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>Once</code></td><td>Plays once and completes.</td></tr>
+                <tr><td><code>Loop</code></td><td>Repeats from the beginning.</td></tr>
+                <tr><td><code>Yoyo</code></td><td>Alternates forward/backward each loop.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="api-item">
+            <h3 id="api-clock">NcClock <small>(enum)</small><a class="anchor-link" href="#api-clock" aria-label="Link to NcClock">#</a></h3>
+            <table>
+              <thead>
+                <tr><th>Value</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>Scaled</code></td><td>Uses <code>Time.deltaTime</code> (default).</td></tr>
+                <tr><td><code>Unscaled</code></td><td>Uses <code>Time.unscaledDeltaTime</code>.</td></tr>
+                <tr><td><code>Manual</code></td><td>Requires explicit calls to <code>NcTween.ManualTick</code>.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="api-item">
+            <h3 id="api-ease">NcEase <small>(enum)</small><a class="anchor-link" href="#api-ease" aria-label="Link to NcEase">#</a></h3>
+            <p>Includes standard easing curves: Linear, In/Out variations for Quad, Cubic, Quart, Quint, Sine, Expo, Circ, Back, Elastic, Bounce, plus <code>CustomCurve</code>.</p>
+          </div>
+
+          <div class="api-item">
+            <h3 id="api-sequence">NcSequence <small>(class)</small><a class="anchor-link" href="#api-sequence" aria-label="Link to NcSequence">#</a></h3>
+            <p>Lightweight sequence builder that orchestrates serial (<code>Then</code>) and parallel (<code>Also</code>) tween steps.</p>
+            <h4>Methods</h4>
+            <table>
+              <thead>
+                <tr><th>Method</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>NcSequence Then(Func&lt;TweenHandle&gt; factory)</code></td><td>Adds a serial step that starts after previous steps complete.</td></tr>
+                <tr><td><code>NcSequence Also(Func&lt;TweenHandle&gt; factory)</code></td><td>Adds a parallel tween to the most recent serial step.</td></tr>
+                <tr><td><code>NcSequence OnComplete(Action callback)</code></td><td>Registers a callback fired when the sequence finishes.</td></tr>
+                <tr><td><code>void Play()</code></td><td>Starts the sequence.</td></tr>
+              </tbody>
+            </table>
+            <p><strong>Notes</strong></p>
+            <ul>
+              <li>The sequence captures the <code>TweenHandle</code>s returned by each factory and automatically advances when they complete or are killed.</li>
+              <li>Sequences are reusable when built entirely from pooled tweens.</li>
+            </ul>
+          </div>
+
+          <div class="api-item">
+            <h3 id="api-runner">NcTweenRunner <small>(MonoBehaviour)</small><a class="anchor-link" href="#api-runner" aria-label="Link to NcTweenRunner">#</a></h3>
+            <p>Singleton runner component responsible for calling <code>NcTween.Tick</code> every frame. Spawned automatically on first tween creation.</p>
+            <h4>Members</h4>
+            <table>
+              <thead>
+                <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>static NcTweenRunner Instance</code></td><td><code>NcTweenRunner</code></td><td>The active runner instance.</td></tr>
+                <tr><td><code>bool persistentMode</code></td><td><code>bool</code></td><td>When true, runner survives scene loads (<code>DontDestroyOnLoad</code>).</td></tr>
+                <tr><td><code>void Setup(bool persistent)</code></td><td><code>internal</code></td><td>Helper used by the runtime when instantiating the runner.</td></tr>
+              </tbody>
+            </table>
+            <p><strong>Behaviour</strong></p>
+            <ul>
+              <li>The runner lives on a hidden GameObject named <code>~NcTweenRunner</code>.</li>
+              <li>Set <code>persistentMode</code> before play if you want scene-local behaviour.</li>
+              <li>Disabling the component allows you to manually drive <code>NcTween.Tick</code> from your own update loop.</li>
+            </ul>
+          </div>
+
+          <div class="api-item">
+            <h3 id="api-extensions">Extension Methods<a class="anchor-link" href="#api-extensions" aria-label="Link to Extension Methods">#</a></h3>
+            <p>The following extension methods are provided for convenience (namespace <code>NappyCat.Tween</code>).</p>
+            <table>
+              <thead>
+                <tr><th>Type</th><th>Methods</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>Transform</code></td><td><code>NcMoveTo</code>, <code>NcLocalMoveTo</code>, <code>NcRotateTo</code>, <code>NcLocalRotateTo</code>, <code>NcLocalScaleTo</code></td></tr>
+                <tr><td><code>CanvasGroup</code></td><td><code>NcAlphaTo</code></td></tr>
+                <tr><td><code>UnityEngine.UI.Image</code></td><td><code>NcFillTo</code>, <code>NcColorTo</code>, <code>NcAlphaTo</code></td></tr>
+                <tr><td><code>SpriteRenderer</code></td><td><code>NcColorTo</code>, <code>NcAlphaTo</code></td></tr>
+                <tr><td><code>TMPro.TMP_Text</code></td><td><code>NcAlphaTo</code></td></tr>
+                <tr><td><code>Renderer</code></td><td><code>NcShaderFloatTo</code>, <code>NcShaderColorTo</code></td></tr>
+              </tbody>
+            </table>
+            <p>Each extension forwards to <code>NcTween.To</code> with sensible defaults and returns a <code>TweenHandle</code>.</p>
+          </div>
+
+          <div class="api-item">
+            <h3 id="api-example">Example: Manual Clock<a class="anchor-link" href="#api-example" aria-label="Link to Manual Clock Example">#</a></h3>
+<pre><code>var options = new NcTweenOptions(1f, clock: NcClock.Manual);
+var handle = NcTween.To(() =&gt; progress, v =&gt; progress = v, 1f, options);
+
+// elsewhere (e.g., Timeline playable):
+NcTween.ManualTick(deltaTime);</code></pre>
+          </div>
+
+          <div class="api-item">
+            <h3 id="api-related">Related Packages<a class="anchor-link" href="#api-related" aria-label="Link to Related Packages">#</a></h3>
+            <ul>
+              <li><strong>com.nappycat.cuefx</strong> &ndash; higher level FX toolkit powered by this runtime.</li>
+              <li><strong>com.nappycat.tools.inspector</strong> &ndash; editor framework that includes preview widgets for manual ticking.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="tooling">
+        <h2>Tooling</h2>
+        <ul>
+          <li><strong>Perf harness</strong> – Window → NappyCat → Perf → Run 1000 Tween Test.</li>
+          <li><strong>Sample scenes</strong> – Create → NappyCat → Playground Scene.</li>
+          <li><strong>CatInspector widgets</strong> – `PreviewBar` and `NcPreviewSnapshot` help build safe editor previews (package: <code>com.nappycat.tools.inspector</code>).</li>
+        </ul>
+      </section>
+
+      <section id="links">
+        <h2>Related Links</h2>
+        <ul>
+          <li><a href="#api-reference">Tween API Reference</a></li>
+          <li><a href="../com.nappycat.cuefx/README.md">CueFX (designer-facing toolkit)</a></li>
+          <li><a href="../com.nappycat.tools.inspector/README.md">CatInspector (editor providers)</a></li>
+        </ul>
+      </section>
+    </article>
+  </main>
+  <footer>
+    MIT © Nappy Cat Labs — Documentation generated for package <code>com.NappyCat.Tween</code>.
+  </footer>
+  <script>
+    const links = Array.from(document.querySelectorAll('nav a'));
+    const activeTargets = new Set();
+
+    const updateNav = () => {
+      const hasApiChild = Array.from(activeTargets).some(id => id.startsWith('api-') && id !== 'api-reference');
+      links.forEach(link => {
+        const targetId = link.getAttribute('href').slice(1);
+        const shouldActivate = activeTargets.has(targetId) || (targetId === 'api-reference' && hasApiChild);
+        link.classList.toggle('active', shouldActivate);
+      });
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      let dirty = false;
+      entries.forEach(entry => {
+        const id = entry.target.id;
+        if (!id) return;
+        if (entry.isIntersecting) {
+          if (!activeTargets.has(id)) {
+            activeTargets.add(id);
+            dirty = true;
+          }
+        } else if (activeTargets.has(id)) {
+          activeTargets.delete(id);
+          dirty = true;
+        }
+      });
+      if (dirty) updateNav();
+    }, { rootMargin: '-45% 0px -45% 0px' });
+
+    document.querySelectorAll('section[id], .api-item h3[id]').forEach(target => observer.observe(target));
+    updateNav();
+  </script>
+</body>
+</html>

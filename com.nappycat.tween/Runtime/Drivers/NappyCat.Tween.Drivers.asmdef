@@ -1,0 +1,21 @@
+{
+  "name": "NappyCat.Tween.Drivers",
+  "references": [
+    "NappyCat.Tween",
+    "UnityEngine.CoreModule",
+    "UnityEngine.UI",
+    "UnityEngine.UIElementsModule"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [
+    { "name": "com.unity.textmeshpro", "expression": "1.0.0", "define": "NC_UNITY_TMP" },
+    { "name": "com.unity.ugui", "expression": "1.0.0", "define": "NC_UNITY_UGUI" }
+  ],
+  "noEngineReferences": false
+}

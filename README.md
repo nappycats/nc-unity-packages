@@ -13,6 +13,7 @@
 - 🏷️ **com.nappycat.tags** — Hierarchy-aware tags and index builder. Generates `Nc.Keys.Tags.*` when Foundation is present or falls back to `Assets/NappyCat/NcKeys.Generated/`.
 - ♻️ **com.nappycat.pool** — Lightweight object and GameObject pooling with optional `Nc.Pool` hub helper and `NcPooledBehaviour` hooks for GameObjects.
 - 🧰 **com.nappycat.extensions** — Zero-alloc helpers for math, collections, Unity types, and utility extensions.
+- 🎚️ **com.nappycat.tween** — Zero-GC tweening runtime with pooled tweens, sequences, and manual ticking.
 
 ### Pro Packages
 Pro packages are available in a separate repository for licensed users. Contact us for access.
@@ -25,6 +26,7 @@ Pro packages are available in a separate repository for licensed users. Contact 
   - Tags: [README](com.nappycat.tags/README.md), [Docs](com.nappycat.tags/Documentation~/index.md)
   - Pool: [README](com.nappycat.pool/README.md), [Docs](com.nappycat.pool/Documentation~/index.md)
   - Extensions: [README](com.nappycat.extensions/README.md), [Docs](com.nappycat.extensions/Documentation~/index.md)
+  - Tween: [README](com.nappycat.tween/README.md), [Docs](com.nappycat.tween/Documentation~/index.md)
 
 ## Installation
 

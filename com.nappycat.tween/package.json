@@ -1,0 +1,11 @@
+{
+  "name": "com.nappycat.tween",
+  "displayName": "NC • Tween",
+  "version": "0.2.0",
+  "unity": "2021.3",
+  "description": "Component-less, pooled tween engine with typed tweens and zero per-frame GC.",
+  "author": {
+    "name": "Nappy Cat",
+    "url": "https://nappycat.com"
+  }
+}

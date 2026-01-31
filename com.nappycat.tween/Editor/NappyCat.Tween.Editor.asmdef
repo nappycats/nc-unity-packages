@@ -1,0 +1,19 @@
+{
+  "name": "NappyCat.Tween.Editor",
+  "references": [
+    "NappyCat.Tween",
+    "UnityEditor.CoreModule",
+    "UnityEngine.CoreModule"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

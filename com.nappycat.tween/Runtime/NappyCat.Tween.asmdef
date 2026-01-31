@@ -1,0 +1,17 @@
+{
+  "name": "NappyCat.Tween",
+  "rootNamespace": "NappyCat.Tween",
+  "references": [
+    "UnityEngine.CoreModule",
+    "NappyCat.Core"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
